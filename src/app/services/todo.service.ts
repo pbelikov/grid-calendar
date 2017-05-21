@@ -71,8 +71,6 @@ export class TODOService {
   }
 
   deleteFromList (todo? : TODOItem) : Promise<Number> {
-    // TODO BUG после переноса элементов почему-то они удаляются вместе с последним элементом ???
-    console.log ('deleting:',todo.id);
     this._localStorageService.remove((todo.id - 1).toString());
     for (let i=0;i<this.data.length;i++) {
       if (this.data[i].id == todo.id) {
