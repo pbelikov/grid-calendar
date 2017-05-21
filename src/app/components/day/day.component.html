@@ -1,0 +1,28 @@
+<div class="day"
+     [ngClass]="currentClasses"
+     makeDroppable [dropContext]="{context: 'day'}" (dropped)="onDropTodo($event)"
+     [popover]="todoPopover"
+     (click)="setActiveState"
+>
+  {{dayDate.date | date: "dd"}}
+  <div>
+    <app-todolist
+      [editable]="false"
+      [dayDate]="dayDate.date"
+      [droppedTodo]="droppedTodo"
+      [refreshRequired]="refreshRequired"
+    ></app-todolist>
+  </div>
+</div>
+<popover-content #todoPopover
+                 placement="auto"
+                 [closeOnMouseOutside]="false"
+                 [closeOnClickOutside]="true"
+>
+  <app-todolist
+    [editable]="true"
+    [dayDate]="dayDate.date"
+    [droppedTodo]="droppedTodo"
+    (onTodoListChange)="onTodoListChange($event)"
+  ></app-todolist>
+</popover-content>

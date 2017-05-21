@@ -1,0 +1,22 @@
+<ul>
+  <li *ngFor="let todo of todos; let i=index"
+      [draggable]="isDraggable()"
+      [makeDraggable]="todo"
+      makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
+  >
+    <span>{{ todo.text }}</span>
+    <span *ngIf="(i == todos.length-1) && (editable === true)"
+          (click)="deleteTODO(todo)"
+          class="delete-icon">[X]</span>
+  </li>
+</ul>
+<form *ngIf="editable === true"
+      (submit)="addTODO($event)">
+  <textarea [(ngModel)]="todoText"
+            (keyup.control.enter)="addTODO($event)"
+            class="textfield"
+            name="todoText"
+            autocomplete="off"
+            placeholder="Ctrl + Enter - add event"
+  ></textarea>
+</form>

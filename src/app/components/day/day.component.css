@@ -1,0 +1,17 @@
+.currentMonth {
+  color: yellow;
+}
+
+.selectedDay {
+  color: red;
+}
+
+.highlitedDay {
+  font-weight: bold;
+}
+
+.day {
+  border: 1px solid red;
+  width: 160px;
+}
+

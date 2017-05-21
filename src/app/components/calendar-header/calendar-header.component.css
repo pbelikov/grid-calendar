@@ -1,0 +1,14 @@
+.previous-month,
+.next-month {
+  margin-top: 7px;
+}
+
+.previous-month {
+  float: left;
+  margin-left: 10px;
+}
+
+.next-month {
+  float: right;
+  margin-right: 10px;
+}

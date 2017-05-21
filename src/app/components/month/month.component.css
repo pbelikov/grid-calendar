@@ -1,0 +1,24 @@
+.data .week,
+.headers .week {
+  display: flex;
+}
+
+.week > .day {
+  margin: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.headers > .week > .day {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.data {
+
+}
+
+.day {
+  border: 1px solid red;
+}

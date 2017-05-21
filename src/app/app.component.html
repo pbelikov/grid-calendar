@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+  <div class="nav-wrapper blue lighten-3">
+    <app-calendar-header
+      [calendarDate]="calendarDate"
+      (onMonthChange)="monthChanges($event)"
+    >Loading header and nav ...</app-calendar-header>
+  </div>
+</nav>
+<section>
+  <app-month
+    [calendarDate]="calendarDate"
+    [currentDate]="currentDate"
+  >Loading month ...</app-month>
+</section>

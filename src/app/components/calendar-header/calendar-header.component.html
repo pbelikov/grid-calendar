@@ -1,0 +1,13 @@
+<button type="button"
+        class="btn-floating blue lighten-1 material-icons previous-month"
+        (click)="onDirectionClick(BACK)">
+  chevron_left
+</button>
+<span class="brand-logo center">
+  {{month}} {{year}}
+</span>
+<button type="button"
+        class="btn-floating blue lighten-1 material-icons next-month"
+        (click)="onDirectionClick(FORWARD)">
+  chevron_right
+</button>
