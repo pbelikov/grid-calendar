@@ -4,7 +4,7 @@ import {DayDate} from "../../classes/day-date";
 @Component({
   selector: 'app-month',
   templateUrl: './month.component.html',
-  styleUrls: ['./month.component.css']
+  styleUrls: ['month.component.scss']
 })
 export class MonthComponent implements OnInit, OnChanges {
   private _calendarDate : Date;

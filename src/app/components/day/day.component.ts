@@ -5,7 +5,7 @@ import {TODOItem} from "../../classes/todo-item";
 @Component({
   selector: 'app-day',
   templateUrl: './day.component.html',
-  styleUrls: ['./day.component.css']
+  styleUrls: ['day.component.scss']
 })
 export class DayComponent implements OnInit, OnChanges {
   private _dayDate : DayDate;

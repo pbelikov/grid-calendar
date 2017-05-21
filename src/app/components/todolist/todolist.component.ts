@@ -9,7 +9,7 @@ import {isNullOrUndefined} from "util";
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.css'],
+  styleUrls: ['todolist.component.scss'],
   providers: [TODOService]
 })
 export class TODOListComponent implements OnInit, OnChanges {

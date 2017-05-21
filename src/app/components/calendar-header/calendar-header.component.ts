@@ -5,7 +5,7 @@ import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 @Component({
   selector: 'app-calendar-header',
   templateUrl: './calendar-header.component.html',
-  styleUrls: ['./calendar-header.component.css']
+  styleUrls: ['calendar-header.component.scss']
 })
 export class CalendarHeaderComponent implements OnInit {
   private _calendarDate : Date;
