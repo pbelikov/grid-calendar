@@ -1,14 +1,33 @@
-.previous-month,
-.next-month {
-  margin-top: 7px;
-}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 10px;
+  background-color: #FCFCFC;
+  color: #999999;
 
-.previous-month {
-  float: left;
-  margin-left: 10px;
-}
+  .month-title-holder {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+  }
 
-.next-month {
-  float: right;
-  margin-right: 10px;
+  button {
+    border-radius: 99999999px;
+    height: 37px;
+    font-weight: bold;
+    width: 38px;
+  }
+
+  .back-button-holder {
+    button {
+      padding-left: 9px;
+    }
+  }
+
+  .forward-btn-holder {
+    button {
+      padding-left: 14px;
+    }
+  }
 }

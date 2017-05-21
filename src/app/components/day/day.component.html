@@ -4,7 +4,7 @@
      [popover]="todoPopover"
      (click)="setActiveState"
 >
-  {{dayDate.date | date: "dd"}}
+  <div class="day-date">{{dayDate.date | date: "dd"}}</div>
   <div>
     <app-todolist
       [editable]="false"

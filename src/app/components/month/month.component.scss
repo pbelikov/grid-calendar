@@ -1,24 +1,38 @@
-.data .week,
-.headers .week {
+section {
+  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+
+  .headers {
+    flex-grow: 5;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background: #D5D5D5;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: inset 0px 1px 6px #999999;
+    padding: 5px 0;
+
+    .day-header {
+      flex-grow: 1;
+      text-align: center;
+      height: 100%;
+      color: #777777;
+      font-size: 1.1em;
+    }
+  }
+  .data {
+    flex-grow: 88;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+
+    app-day {
+      width: calc(100% * 1/7);
+    }
+  }
 }
 
-.week > .day {
-  margin: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
-}
-
-.headers > .week > .day {
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.data {
-
-}
-
-.day {
-  border: 1px solid red;
-}

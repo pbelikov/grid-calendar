@@ -37,7 +37,7 @@ export class MonthComponent implements OnInit, OnChanges {
 
   constructor() {
     // this.dayHeaders = this.dayHeaders.map(value => value.toUpperCase()); // overkill, moved to CSS
-    this.dayHeaders = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    this.dayHeaders = ['Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     this.weeks = [];
   }
 
