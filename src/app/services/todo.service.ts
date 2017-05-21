@@ -1,7 +1,6 @@
-// Using angular-2-local-storage for interaction with browser's localstorage
-
 import { Injectable } from '@angular/core';
 
+// Using angular-2-local-storage for comfortable interaction with browser's localStorage
 import { LocalStorageService } from 'angular-2-local-storage';
 
 import { TODOItem } from '../classes/todo-item';
@@ -101,4 +100,8 @@ export class TODOService {
     return Promise.resolve(newTodo.id);
   }
 
+  clear () : Promise<TODOItem[]> {
+    this._localStorageService.clearAll();
+    return Promise.resolve([]);
+  }
 }

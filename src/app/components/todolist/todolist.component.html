@@ -6,7 +6,7 @@
       makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
   >
     <span>{{ todo.text }}</span>
-    <span *ngIf="(i == todos.length-1) && (editable === true)"
+    <span *ngIf="editable === true"
           (click)="deleteTODO(todo)"
           class="delete-icon">[X]</span>
   </li>
