@@ -16,12 +16,13 @@ export class TODOService {
   }
 
   getList(date? : Date): Promise<TODOItem[]> {
-    let filteredData : TODOItem[] = [];
-    for (let key in this._localStorageService.keys()) {
+    this.data = [];
+    for (let key of this._localStorageService.keys()) {
       if (this._localStorageService.get(key) == null) {
         continue;
       }
       let element : TODOItem = <TODOItem>JSON.parse (this._localStorageService.get(key).toString());
+
       if (element == null) {
         continue;
       }
@@ -30,20 +31,20 @@ export class TODOService {
       }
 
       if (date == undefined) {
-        filteredData.push(element);
+        this.data.push(element);
+        continue;
       }
       if (new Date (element['day']).getTime() == date.getTime()) {
-        filteredData.push(element);
+        this.data.push(element);
       }
     }
-    this.data = filteredData;
     this.data.sort((a : TODOItem, b : TODOItem) => {
       return a.orderInDay > b.orderInDay ? 1 : 0;
     });
     return Promise.resolve(this.data);
   }
 
-  addToList (todo : TODOItem) : Promise<TODOItem[]> {
+  addToList (todo : TODOItem) : Promise<Number> {
     let idArray : number[] = this._localStorageService.keys().map((key, index) => {
       if (this._localStorageService.get(key) == null) {
         return 0;
@@ -65,18 +66,19 @@ export class TODOService {
     }
     todo.orderInDay = this.data.length + 1;
     this._localStorageService.set((todo.id - 1).toString(), JSON.stringify(todo));
-    return Promise.resolve(this.getList(todo.day));
+    this.data.push(todo);
+    return Promise.resolve(todo.id);
   }
 
   deleteFromList (todo? : TODOItem) : Promise<Number> {
     // TODO BUG после переноса элементов почему-то они удаляются вместе с последним элементом ???
-    // TODO BUG поблема удаления элемента не из конца хранилища (после этого не получается ничего добавить)
+    console.log ('deleting:',todo.id);
     this._localStorageService.remove((todo.id - 1).toString());
-    // for (let i=0;i<this.data.length;i++) {
-    //   if (this.data[i].id == todo.id) {
-    //     this.data.slice(i,1);
-    //   }
-    // }
+    for (let i=0;i<this.data.length;i++) {
+      if (this.data[i].id == todo.id) {
+        this.data.splice(i,1);
+      }
+    }
     return Promise.resolve(todo.id);
   }
 

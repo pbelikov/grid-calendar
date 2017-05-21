@@ -60,7 +60,6 @@ export class TODOListComponent implements OnInit, OnChanges {
   getTODOList () : void {
     this.todoService.getList(this._dayDate).then(todos => {
       this.todos = todos;
-      console.log (this.todos);
       this.listChanged.emit(true);
     });
   }
