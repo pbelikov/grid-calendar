@@ -64,7 +64,7 @@ export class MonthComponent implements OnInit, OnChanges {
     let month : number = this._calendarDate.getMonth();
     let firstDay : Date = this._calendarDate;
 
-    // we'll get start date of month (weird part)
+    // get start date of month (weird part)
     while (firstDay.getDay() == 0 ? 7 : firstDay.getDay() >= 1) {
       if (firstDay.getDay() == 1) {
         break;
@@ -73,7 +73,7 @@ export class MonthComponent implements OnInit, OnChanges {
       }
     }
 
-    // as soon as we know that there are 35 cells (5 weeks) in our monthly calendar ...
+    // there are 35 cells (5 weeks) in our monthly calendar (checked against various apps) ...
     for (let i=0; i < 5; i++) {
       this.weeks.push({days: this._buildWeek(firstDay, month)});
       firstDay = this._addDays (firstDay, 7);

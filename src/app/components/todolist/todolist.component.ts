@@ -95,10 +95,10 @@ export class TODOListComponent implements OnInit, OnChanges {
 
   onDrop(event : any, data?: any) {
     if (data == undefined) {
-      // if we just drop into empty space in day, then we just update date and put the item into beginning of the list
+      // if drop into empty space in day, then - update date and put the item into beginning of the list
       this.todoService.changeTodoDate(event, this._dayDate).then(() => this.getTODOList());
     } else {
-      // if another event is target, then we put new event above targeted one
+      // if another event is target, then put new event above targeted one
       // made for future use, can be activated with adding makeDroppable directive
       // to list element: makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
       this.todoService.putAbove(event.payload, data).then(() => this.getTODOList());

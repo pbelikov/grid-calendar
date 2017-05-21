@@ -1,3 +1,6 @@
+/*
+  Class to support drag-and-drop: defines structure of "dataTransfered" object
+ */
 export class DropContent {
   context : string;
   payload : Object;

@@ -1,3 +1,6 @@
+/*
+ * Class to describe our TODOItem
+ */
 export class TODOItem {
   day : Date;
   text: string;

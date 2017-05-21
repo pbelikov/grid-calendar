@@ -1,14 +1,33 @@
-import {Component, OnInit, Input, EventEmitter, Output, OnChanges, ElementRef} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, ElementRef} from '@angular/core';
 import {DayDate} from "../../classes/day-date";
 import {TODOItem} from "../../classes/todo-item";
 
+/*
+ * This component is used to render "day" with all the contents
+ */
 @Component({
   selector: 'app-day',
   templateUrl: './day.component.html',
   styleUrls: ['day.component.scss']
 })
 export class DayComponent implements OnInit, OnChanges {
+  /*
+   * PRIVATE variables
+   * date (date + month) - used to define whether day is in currently selected month and for further TODO-list logic
+   * selected day - selected day
+   * highlighted day - some important day ("today" in our case)
+   * element - DOM-element reference
+   * trigger to alert that refresh of contained todos is required
+   */
   private _dayDate : DayDate;
+  private _selected : Date;
+  private _highlited : Date;
+  private _element : ElementRef;
+  private _refreshRequired : Date;
+
+  /*
+   * Getters, setters and inputs
+   */
 
   @Input() set dayDate (dayDate : DayDate) {
     this._dayDate = dayDate;
@@ -18,8 +37,6 @@ export class DayComponent implements OnInit, OnChanges {
     return this._dayDate;
   }
 
-  private _selected : Date;
-
   @Input() set selected (selected : Date) {
     this._selected = selected;
   }
@@ -28,13 +45,9 @@ export class DayComponent implements OnInit, OnChanges {
     return this._selected;
   }
 
-  private _highlited : Date;
-
   @Input() set highlited (highlited : Date) {
     this._highlited = highlited;
   }
-
-  private _element : ElementRef;
 
   get element(): ElementRef {
     return this._element;
@@ -44,8 +57,6 @@ export class DayComponent implements OnInit, OnChanges {
     this._element = value;
   }
 
-  private _refreshRequired : Date;
-
   get refreshRequired(): Date {
     return this._refreshRequired;
   }
@@ -54,10 +65,16 @@ export class DayComponent implements OnInit, OnChanges {
     this._refreshRequired = value;
   }
 
+  /*
+   * PUBLIC VARIABLES to manage interaction
+   */
   currentClasses = {};
-  daySimple : number;
   droppedTodo : TODOItem;
 
+  /*
+   * CONSTRUCTOR
+   * ElementRef is injected
+   */
   constructor(private elementRef: ElementRef) {
 
   }
