@@ -20,9 +20,6 @@ export class CalendarHeaderComponent implements OnInit {
    */
   private _calendarDate : Date;
 
-  private FORWARD : string = 'FORWARD';
-  private BACK : string = 'BACK';
-
   private _month : string;
   private _year : number;
 
@@ -37,6 +34,13 @@ export class CalendarHeaderComponent implements OnInit {
   get year(): number {
     return this._year;
   }
+
+  /*
+   * PUBLIC VARIABLES to manage interaction
+   */
+
+  FORWARD : string = 'FORWARD';
+  BACK : string = 'BACK';
 
   /*
    * Input: calendar date for root component + getter

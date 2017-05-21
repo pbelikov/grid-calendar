@@ -70,6 +70,13 @@ export class DayComponent implements OnInit, OnChanges {
   }
 
   /*
+   * Setting day as active
+   */
+  setActiveState () {
+    this.selected = this._dayDate.date;
+  }
+
+  /*
    * Various checks, that are used to style day
    */
   private _isCurrentMonth () : boolean {
