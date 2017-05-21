@@ -4,6 +4,10 @@ This is implementation of calendar with TODOs, that uses no external plugins to 
 
 It still uses 2 external modules: [ngx-popover](https://github.com/pleerock/ngx-popover) for Popover and [angular-2-local-storage](https://github.com/phenomnomnominal/angular-2-local-storage) module is used for comfortable interaction with browser's localStorage
 
+### DEMO
+
+Demo is available here: [https://pbelikov.github.io/grid-calendar/dist/index.html](https://pbelikov.github.io/grid-calendar/dist/index.html)
+
 ### Source structure
 
 + __classes/__
