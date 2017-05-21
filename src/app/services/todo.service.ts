@@ -81,6 +81,15 @@ export class TODOService {
 
   changeTodoDate (todo : TODOItem, date : Date) : Promise<Number> {
     todo.day = date;
+
+    let sortArray : number[] = this.data.map((value, index) => {
+      return value.orderInDay;
+    });
+    if (sortArray.length == 0) {
+      todo.orderInDay = 1;
+    } else {
+      todo.orderInDay = Math.min.apply(null, sortArray) - 1;
+    }
     this._localStorageService.set((todo.id - 1).toString(), JSON.stringify(todo));
     return Promise.resolve(todo.id);
   }

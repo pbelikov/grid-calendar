@@ -99,6 +99,8 @@ export class TODOListComponent implements OnInit, OnChanges {
       this.todoService.changeTodoDate(event, this._dayDate).then(() => this.getTODOList());
     } else {
       // if another event is target, then we put new event above targeted one
+      // made for future use, can be activated with adding makeDroppable directive
+      // to list element: makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
       this.todoService.putAbove(event.payload, data).then(() => this.getTODOList());
     }
   }
