@@ -1,23 +1,27 @@
-<ul>
-  <li *ngFor="let todo of todos; let i=index"
-      class="{{todoDOMClass}}-{{todo.id}}"
-      [draggable]="isDraggable()"
-      [makeDraggable]="todo" [helperClass]="todoDOMClass"
-      makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
-  >
-    <span>{{ todo.text }}</span>
-    <span *ngIf="editable === true"
-          (click)="deleteTODO(todo)"
-          class="delete-icon">[X]</span>
-  </li>
-</ul>
-<form *ngIf="editable === true"
-      (submit)="addTODO($event)">
-  <textarea [(ngModel)]="todoText"
-            (keyup.control.enter)="addTODO($event)"
-            class="textfield"
-            name="todoText"
-            autocomplete="off"
-            placeholder="Ctrl + Enter - add event"
-  ></textarea>
-</form>
+<div class="todo-wrapper">
+  <div class="todo-list-wrapper">
+    <ul class="list-group">
+      <li *ngFor="let todo of todos; let i=index"
+          class="{{todoDOMClass}}-{{todo.id}} list-group-item"
+          [draggable]="isDraggable()"
+          [makeDraggable]="todo" [helperClass]="todoDOMClass"
+          makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
+      >
+        <span>{{ todo.text }}</span>
+        <span *ngIf="editable === true"
+              (click)="deleteTODO(todo)"
+              class="badge badge-default bg-danger"><i class="fa fa-times"></i></span>
+      </li>
+    </ul>
+  </div>
+  <form *ngIf="editable === true"
+        (submit)="addTODO($event)">
+    <textarea [(ngModel)]="todoText"
+              (keyup.control.enter)="addTODO($event)"
+              class="form-control"
+              name="todoText"
+              autocomplete="off"
+              placeholder="Ctrl + Enter - add event"
+    ></textarea>
+  </form>
+</div>

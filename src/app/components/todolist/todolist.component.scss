@@ -1,0 +1,25 @@
+.todo-wrapper {
+  font-size: 0.9em;
+
+  .list-group {
+    li {
+      .badge {
+        display: none;
+      }
+    }
+    & > li:last-child {
+      .badge {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.badge {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 150px;
+}

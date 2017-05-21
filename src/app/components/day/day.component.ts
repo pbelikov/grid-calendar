@@ -71,7 +71,7 @@ export class DayComponent implements OnInit, OnChanges {
   }
 
   private isHighlited () : boolean {
-    return this._highlited.getUTCDate() == this._dayDate.date.getUTCDate() ? true : false;
+    return this._highlited.getTime() == this._dayDate.date.getTime() ? true : false;
   }
 
   onTodoListChange(event : any) {

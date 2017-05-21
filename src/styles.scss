@@ -3,3 +3,22 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.list-group-item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.popover {
+  min-width: 250px;
+  max-width: 300px;
+
+  .todo-list-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+
+    .list-group {
+      margin: 0;
+    }
+  }
+}
