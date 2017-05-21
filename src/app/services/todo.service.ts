@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 /*
  * Service is used to support CRUD operations with TODO-list
  * localStorage is used for persistence
- * angular-2-local-storage module is used for comfortable interaction with browsers localStorage
+ * angular-2-local-storage module is used for comfortable interaction with browser's localStorage
  * Promises are implemented for future use (if there'll be some serverside with DB)
  */
 import { LocalStorageService } from 'angular-2-local-storage';

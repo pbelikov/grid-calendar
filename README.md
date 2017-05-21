@@ -1,6 +1,8 @@
 # GridCalendar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
+This is implementation of calendar with TODOs, that uses no external plugins to build calendar and implement drag-and-drop logic.
+
+It still uses 2 external modules: [ngx-popover](https://github.com/pleerock/ngx-popover) for Popover and [angular-2-local-storage](https://github.com/phenomnomnominal/angular-2-local-storage) module is used for comfortable interaction with browser's localStorage
 
 ## Source structure
 
@@ -23,6 +25,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Notes
 
 There are 5 to 6 rows in the calendar, depending on month. For example, May 2017 - 5 rows, January 2017 - 6 rows.
+
+## Angular-CLI
+
+Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
 
 ## Development server
 
