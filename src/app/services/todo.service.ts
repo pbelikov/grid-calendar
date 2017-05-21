@@ -99,9 +99,4 @@ export class TODOService {
     this._localStorageService.set((currentTodo.id - 1).toString(), JSON.stringify(currentTodo));
     return Promise.resolve(newTodo.id);
   }
-
-  clear () : Promise<TODOItem[]> {
-    this._localStorageService.clearAll();
-    return Promise.resolve([]);
-  }
 }

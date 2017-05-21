@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+$base-color: #FFF8DC;
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -7,6 +9,7 @@ body {
 .list-group-item {
   padding-left: 10px;
   padding-right: 10px;
+  overflow: hidden;
 }
 
 .popover {
@@ -21,4 +24,16 @@ body {
       margin: 0;
     }
   }
+}
+
+.draggingElementOverArea {
+  background-color: darken( $base-color, 10% );
+
+  .draggingElement {
+    background-color: #FFFFFF;
+  }
+}
+
+.draggingElement {
+  opacity: 0.5;
 }

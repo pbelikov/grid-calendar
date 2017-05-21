@@ -5,7 +5,6 @@
           class="{{todoDOMClass}}-{{todo.id}} list-group-item"
           [draggable]="isDraggable()"
           [makeDraggable]="todo" [helperClass]="todoDOMClass"
-          makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
       >
         <span>{{ todo.text }}</span>
         <span *ngIf="editable === true"

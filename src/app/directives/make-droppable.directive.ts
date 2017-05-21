@@ -48,8 +48,6 @@ export class MakeDroppable implements OnInit {
       for (let i=0;i<elementsToHide.length;i++) {
         elementsToHide[i].remove();
       }
-
-      return false;
     });
   }
 }
