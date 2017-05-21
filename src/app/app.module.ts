@@ -15,8 +15,6 @@ import { TODOListComponent } from './components/todolist/todolist.component';
 import { MakeDraggable } from './directives/make-draggable.directive';
 import { MakeDroppable } from './directives/make-droppable.directive';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

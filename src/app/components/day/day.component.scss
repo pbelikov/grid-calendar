@@ -1,5 +1,5 @@
 .day {
-  min-height: 105px;
+  min-height: 95px;
   font-weight: bold;
   background-color: #F5F5F5;
   border: 1px solid #EEEEEE;
@@ -33,6 +33,7 @@
     text-align: right;
     font-size: 0.85em;
     color: #AAAAAA;
+    padding-bottom: 5px;
   }
 
   &:hover {
