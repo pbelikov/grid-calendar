@@ -1,7 +1,8 @@
 <ul>
   <li *ngFor="let todo of todos; let i=index"
+      class="{{todoDOMClass}}-{{todo.id}}"
       [draggable]="isDraggable()"
-      [makeDraggable]="todo"
+      [makeDraggable]="todo" [helperClass]="todoDOMClass"
       makeDroppable [dropContext]="{context: 'list'}" (dropped)="onDrop($event, todo)"
   >
     <span>{{ todo.text }}</span>

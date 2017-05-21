@@ -7,6 +7,7 @@ import {DropContent} from "../classes/drop-content";
 export class MakeDraggable implements OnInit {
   @Input('makeDraggable') data: DropContent;
   @Input('isDraggable') draggable : boolean = true;
+  @Input('helperClass') helperClass : string;
 
   dragClass : string = 'draggingElement';
 
@@ -26,7 +27,12 @@ export class MakeDraggable implements OnInit {
 
       element.addEventListener('dragstart', (event) => {
         let random: number = Math.round(0.5 + Math.random() * 100000);
-        let elementIdentifyingClass = `${this.dragClass}-${random.toString()}`;
+        let elementIdentifyingClass;
+        if (!this.data.hasOwnProperty('id')) {
+          elementIdentifyingClass = `${this.dragClass}-${random.toString()}`;
+        } else {
+          elementIdentifyingClass = `${this.helperClass}-${this.data['id']}`;
+        }
 
         element.classList.add(this.dragClass);
         element.classList.add(elementIdentifyingClass);

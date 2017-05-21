@@ -52,6 +52,7 @@ export class TODOListComponent implements OnInit, OnChanges {
   @Input() droppedTodo : TODOItem;
 
   todoText : string;
+  todoDOMClass : string = 'todoItemClass';
 
   constructor(private todoService: TODOService) {
 

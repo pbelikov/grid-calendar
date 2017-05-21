@@ -45,7 +45,12 @@ export class MakeDroppable implements OnInit {
 
       // some direct DOM manipulation (I know that it's bad practice, but I'm stuck with drag and drop
       // for too long, so this solution is used
-      this._document.getElementsByClassName(data.elementClass)[0].remove();
+
+      let elementsToHide = this._document.querySelectorAll(`.${data.elementClass}`);
+      for (let i=0;i<elementsToHide.length;i++) {
+        console.log (elementsToHide[i]);
+        elementsToHide[i].remove();
+      }
 
       return false;
     });
