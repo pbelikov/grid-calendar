@@ -34,7 +34,6 @@ export class MakeDroppable implements OnInit {
     });
 
     element.addEventListener('drop', (event) => {
-      event.stopPropagation();
       element.classList.remove(this.dropClass);
 
       let data : DropContent = new DropContent(this.dropContext['context'],
@@ -43,12 +42,10 @@ export class MakeDroppable implements OnInit {
       );
       this.dropped.emit(data);
 
-      // some direct DOM manipulation (I know that it's bad practice, but I'm stuck with drag and drop
-      // for too long, so this solution is used
-
+      // some direct DOM manipulation (I know that it's bad practice, but I got stuck with drag and drop,
+      // so this solution is used
       let elementsToHide = this._document.querySelectorAll(`.${data.elementClass}`);
       for (let i=0;i<elementsToHide.length;i++) {
-        console.log (elementsToHide[i]);
         elementsToHide[i].remove();
       }
 
