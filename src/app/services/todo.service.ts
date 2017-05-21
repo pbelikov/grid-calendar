@@ -182,4 +182,12 @@ export class TODOService {
     // done
     return Promise.resolve(newTodo.id);
   }
+
+  /* = unused method  = (there was no place for it on the provided maquette)
+   * Clears our storage: removes all TODOs
+   */
+  clear () : Promise<TODOItem[]> {
+    this._localStorageService.clearAll();
+    return Promise.resolve([]);
+  }
 }

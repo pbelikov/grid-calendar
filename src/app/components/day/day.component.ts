@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges, ElementRef} from '@angular/core';
+import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {DayDate} from "../../classes/day-date";
 import {TODOItem} from "../../classes/todo-item";
 
@@ -16,13 +16,11 @@ export class DayComponent implements OnInit, OnChanges {
    * date (date + month) - used to define whether day is in currently selected month and for further TODO-list logic
    * selected day - selected day
    * highlighted day - some important day ("today" in our case)
-   * element - DOM-element reference
    * trigger to alert that refresh of contained todos is required
    */
   private _dayDate : DayDate;
   private _selected : Date;
   private _highlited : Date;
-  private _element : ElementRef;
   private _refreshRequired : Date;
 
   /*
@@ -49,14 +47,6 @@ export class DayComponent implements OnInit, OnChanges {
     this._highlited = highlited;
   }
 
-  get element(): ElementRef {
-    return this._element;
-  }
-
-  set element(value: ElementRef) {
-    this._element = value;
-  }
-
   get refreshRequired(): Date {
     return this._refreshRequired;
   }
@@ -73,12 +63,15 @@ export class DayComponent implements OnInit, OnChanges {
 
   /*
    * CONSTRUCTOR
-   * ElementRef is injected
+   * nothing interesting here
    */
-  constructor(private elementRef: ElementRef) {
+  constructor() {
 
   }
 
+  /*
+   * Various checks, that are used to style day
+   */
   private _isCurrentMonth () : boolean {
     return this._dayDate.date.getMonth() == this._dayDate.month ? true : false;
   }
@@ -91,18 +84,26 @@ export class DayComponent implements OnInit, OnChanges {
     return this._highlited.getTime() == this._dayDate.date.getTime() ? true : false;
   }
 
-  onTodoListChange(event : any) {
+  /*
+   * Handler for onTodoListChange event: used to trigger todolist refresh
+   */
+  onTodoListChange(event : any) : void {
     if (typeof event == "boolean") {
       this.refreshRequired = new Date();
     }
   }
 
-  onDropTodo (event : any) {
+  /*
+   * Handler, that fires when TODO is dropped on day
+   */
+  onDropTodo (event : any) : void {
     this.droppedTodo = event.payload;
   }
 
-  ngOnInit() {
-    this._element = this.elementRef;
+  /*
+   * initializing component's UI
+   */
+  ngOnInit() : void {
     this.currentClasses =  {
       currentMonth: this._isCurrentMonth(),
       selectedDay: null,
@@ -110,7 +111,10 @@ export class DayComponent implements OnInit, OnChanges {
     };
   }
 
-  ngOnChanges(changes : any) {
+  /*
+   * Listening to changes to set day as current
+   */
+  ngOnChanges(changes : any) : void {
     this.currentClasses['selectedDay'] = this.isSelected();
   }
 }

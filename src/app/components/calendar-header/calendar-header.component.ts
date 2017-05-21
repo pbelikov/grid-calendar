@@ -27,6 +27,18 @@ export class CalendarHeaderComponent implements OnInit {
   private _year : number;
 
   /*
+   * Getters for month and year
+   */
+
+  get month(): string {
+    return this._month;
+  }
+
+  get year(): number {
+    return this._year;
+  }
+
+  /*
    * Input: calendar date for root component + getter
    */
   @Input()
@@ -92,7 +104,7 @@ export class CalendarHeaderComponent implements OnInit {
   }
 
   // initializing and displaying month and year in header of calendar
-  ngOnInit() {
+  ngOnInit() : void {
     this.setMonthDisplay();
     this.setYearDisplay();
   }
