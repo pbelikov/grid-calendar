@@ -31,7 +31,7 @@ body {
 }
 
 .bg-icon {
-  display: none;
+  display: none!important;
 }
 
 .draggingElementOverArea {
@@ -47,6 +47,6 @@ body {
     position: absolute;
     margin-top: -3px;
     opacity: 0.5;
-    display: block;
+    display: block!important;
   }
 }
