@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 import { TODOItem } from '../../classes/todo-item';
 import { TODOService } from '../../services/todo.service';
@@ -60,6 +60,7 @@ export class TODOListComponent implements OnInit, OnChanges {
   getTODOList () : void {
     this.todoService.getList(this._dayDate).then(todos => {
       this.todos = todos;
+      console.log (this.todos);
       this.listChanged.emit(true);
     });
   }

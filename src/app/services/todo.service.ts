@@ -43,7 +43,7 @@ export class TODOService {
     return Promise.resolve(this.data);
   }
 
-  addToList (todo : TODOItem) : Promise<Number> {
+  addToList (todo : TODOItem) : Promise<TODOItem[]> {
     let idArray : number[] = this._localStorageService.keys().map((key, index) => {
       if (this._localStorageService.get(key) == null) {
         return 0;
@@ -65,18 +65,18 @@ export class TODOService {
     }
     todo.orderInDay = this.data.length + 1;
     this._localStorageService.set((todo.id - 1).toString(), JSON.stringify(todo));
-    return Promise.resolve(todo.id);
+    return Promise.resolve(this.getList(todo.day));
   }
 
   deleteFromList (todo? : TODOItem) : Promise<Number> {
     // TODO BUG после переноса элементов почему-то они удаляются вместе с последним элементом ???
     // TODO BUG поблема удаления элемента не из конца хранилища (после этого не получается ничего добавить)
     this._localStorageService.remove((todo.id - 1).toString());
-    for (let i=0;i<this.data.length;i++) {
-      if (this.data[i].id == todo.id) {
-        this.data.slice(i,1);
-      }
-    }
+    // for (let i=0;i<this.data.length;i++) {
+    //   if (this.data[i].id == todo.id) {
+    //     this.data.slice(i,1);
+    //   }
+    // }
     return Promise.resolve(todo.id);
   }
 

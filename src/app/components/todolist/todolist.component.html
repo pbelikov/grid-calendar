@@ -13,7 +13,7 @@
 <form *ngIf="editable === true"
       (submit)="addTODO($event)">
   <textarea [(ngModel)]="todoText"
-            (keyup.control.enter)="addTODO($event)"
+            (keyup.enter)="addTODO($event)"
             class="textfield"
             name="todoText"
             autocomplete="off"
