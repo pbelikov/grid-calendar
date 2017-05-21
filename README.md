@@ -20,6 +20,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   + __todo.service__ - service to make CRUD operations with TODOs
 + __app.component.ts__ - root component
 
+## Notes
+
+There are 5 to 6 rows in the calendar, depending on month. For example, May 2017 - 5 rows, January 2017 - 6 rows.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

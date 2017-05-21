@@ -96,10 +96,20 @@ export class MonthComponent implements OnInit, OnChanges {
       }
     }
 
-    // there are 48 cells (6 weeks) in our monthly calendar (checked against various apps and tested against Jan-2017)
+    // there are max 48 cells (6 weeks) in our monthly calendar (checked against various apps and tested against Jan-2017)
     for (let i=0; i < 6; i++) {
       this.weeks.push({days: this._buildWeek(firstDay, month)});
       firstDay = this._addDays (firstDay, 7);
+    }
+
+    // Removing last week if it does not belong to current month (checking only 1st day)
+    let weekRemoveException = new Error('Error occured while removing last week of month.');
+    try {
+      if (this.weeks[5]['days'][0].month != new Date (this.weeks[5]['days'][0].date).getMonth()) {
+        this.weeks.splice(5,1);
+      }
+    } catch (weekRemoveException) {
+      // exception handler intentionally left blank
     }
   }
 
