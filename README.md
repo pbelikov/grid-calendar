@@ -26,9 +26,11 @@ Demo is available here: [https://pbelikov.github.io/grid-calendar/dist/index.htm
   + __todo.service__ - service to make CRUD operations with TODOs
 + __app.component.ts__ - root component
 
-### Notes
+### Usage notes
 
 + There are 5 to 6 rows in the calendar, depending on month. For example, May 2017 - 5 rows, January 2017 - 6 rows.
++ TODO item is always dropped on top of the day (even if day is the same) - it is made intentionally, to provide capability for faster prioritization of TODOs.
++ "Ctrl" in placeholder of add-todo textarea means exactly "Ctrl" button on keyboard.
 
 ### Known issues
 
