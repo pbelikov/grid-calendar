@@ -46,7 +46,7 @@ Demo is available here: [https://pbelikov.github.io/grid-calendar/dist/index.htm
 
 ### Angular-CLI
 
-Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4, so it contains some unit-testing and end-2-end specs that do not conform with application source code(left from template), so testing with karma and protractor will fail, but everything works.
+Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4, so it contains some unit-testing and end-2-end specs that do not conform with application source code, so testing with karma and protractor will fail, but everything works.
 
 ### Development server setup
 
