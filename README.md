@@ -46,7 +46,7 @@ Demo is available here: [https://pbelikov.github.io/grid-calendar/dist/index.htm
 
 ### Angular-CLI
 
-Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
+Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4, so it contains some unit-testing and end-2-end specs that do not conform with application source code, so testing with karma and protractor will fail, but everything works.
 
 ### Development server setup
 
@@ -64,12 +64,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 Don't forget to put correct `base-href` with `--base-href` parameter.
-
-### CLI unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### CLI end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
